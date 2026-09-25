@@ -1,4 +1,3 @@
-cat << 'EOF' > verify_q07_secure_route.sh
 #!/bin/bash
 S=0
 R=$(oc get route -n area51 -o json 2>/dev/null)
@@ -13,6 +12,3 @@ echo "$R" | grep -q '"termination": *"edge"' && S=$((S+20))
 # 5. Certificate and Key are populated
 echo "$R" | grep -q '"certificate":' && echo "$R" | grep -q '"key":' && S=$((S+20))
 echo "🎯 FINAL SCORE: $S / 100 Points ($S%)"
-EOF
-chmod +x verify_q07.sh
-./verify_q07.sh

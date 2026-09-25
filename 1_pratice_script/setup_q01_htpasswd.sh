@@ -1,4 +1,3 @@
-cat << 'EOF' > setup_q01_htpasswd.sh
 #!/bin/bash
 oc delete secret htpass-idp-ex280 ex280-idp-secret -n openshift-config &>/dev/null
 oc delete user jobs wozniak collins adlerin armstrong Thomson Robert Joseph job Armstrong richard &>/dev/null
@@ -14,6 +13,3 @@ except Exception:
     pass" &>/dev/null
 rm -f ~/htpassfile
 echo ">>> Q1 Environment Reset: Clean OAuth (No HTPasswd, Only LDAP) - Exact Exam State!"
-EOF
-chmod +x setup_q01.sh
-./setup_q01.sh

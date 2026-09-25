@@ -1,4 +1,3 @@
-cat << 'EOF' > verify_q13_troubleshoot_endpoints.sh
 #!/bin/bash
 S=0
 oc get project apples &>/dev/null && S=$((S+20))
@@ -7,5 +6,3 @@ EP=$(oc get endpoints oranges -n apples -o jsonpath='{.subsets[*].addresses[*].i
 [ -n "$EP" ] && S=$((S+25))
 oc get route oranges -n apples &>/dev/null && S=$((S+25))
 echo "🎯 FINAL SCORE: $S / 100 Points ($S%)"
-EOF
-chmod +x verify_q13_troubleshoot_endpoints.sh && ./verify_q13_troubleshoot_endpoints.sh

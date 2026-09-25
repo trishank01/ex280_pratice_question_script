@@ -1,4 +1,3 @@
-cat << 'EOF' > verify_q19_project_template.sh
 #!/bin/bash
 S=0
 oc get template project-request -n openshift-config &>/dev/null && S=$((S+25))
@@ -10,5 +9,3 @@ oc get limitrange -n test-temp-q19 2>/dev/null | grep -q 'limit' && S=$((S+25))
 oc get quota -n test-temp-q19 2>/dev/null | grep -q 'quota' && S=$((S+25))
 oc delete project test-temp-q19 &>/dev/null
 echo "FINAL SCORE: $S / 100 Points ($S%)"
-EOF
-chmod +x verify_q19_project_template.sh && ./verify_q19_project_template.sh

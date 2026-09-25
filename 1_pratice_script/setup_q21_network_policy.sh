@@ -1,4 +1,3 @@
-cat << 'EOF' > setup_q21_network_policy.sh
 #!/bin/bash
 echo ">>> Setting up environment for Q21 (Network Policy)..."
 
@@ -17,5 +16,3 @@ echo ">>> Tasks:"
 echo " 1. Create project 'atlas' and deploy app 'mercury'"
 echo " 2. Create Deny-All Ingress NetworkPolicy in 'atlas'"
 echo " 3. Create NetworkPolicy in 'atlas' allowing traffic from pod 'rocky' in 'bluewills' to 'mercury' on TCP 8080"
-EOF
-chmod +x setup_q21_network_policy.sh && ./setup_q21_network_policy.sh

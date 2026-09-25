@@ -1,4 +1,3 @@
-cat << 'EOF' > verify_q03_project_permissions.sh
 #!/bin/bash
 S=0
 PROJS_OK=1
@@ -10,6 +9,3 @@ done
 [ "$(oc auth can-i create rolebindings -n titan --as armstrong 2>/dev/null)" = "yes" ] && S=$((S+20))
 [ "$(oc auth can-i get pods -n apollo --as collins 2>/dev/null)" = "yes" ] && S=$((S+20))
 echo "🎯 FINAL SCORE: $S / 100 Points ($S%)"
-EOF
-chmod +x verify_q03.sh
-./verify_q03.sh
